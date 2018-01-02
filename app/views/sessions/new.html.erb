@@ -1,0 +1,12 @@
+<% if flash[:error] %>
+  <ul>
+  <%flash[:error].each do |message|%>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_tag sessions_path do %>
+  <%= text_field_tag :username, nil, placeholder: "Username" %>
+  <%= submit_tag "Sign In" %>
+<% end %>
