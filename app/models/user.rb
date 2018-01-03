@@ -1,6 +1,6 @@
 class User < ApplicationRecord
+  mount_uploader :picture, PictureUploader
   validates :name, presence: true, uniqueness: true
-
   has_many :memberships
   has_many :groups, through: :memberships
   has_many :comments
@@ -27,9 +27,12 @@ class User < ApplicationRecord
     movies
   end
 
+<<<<<<< HEAD
+=======
 
 
 # =======
 #
 # >>>>>>> 1680ffead1fee2d1a7cf69ebf7e10b6c68bd7488
+>>>>>>> d6c4baa78781d0658c12b052ce342fcaa0a30e2d
 end

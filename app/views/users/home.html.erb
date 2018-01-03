@@ -1,2 +1,3 @@
 congratulations you fucking did it you logged in
+<%= image_tag(@user.picture_url, width: 600) if @user.picture.present? %>
 <%= link_to "Logout", logout_path %>

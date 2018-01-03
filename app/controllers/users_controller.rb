@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :authorized, only: [:new, :create]
 
   def home
+    @user = current_user
     @comments = current_user.get_user_groups_comments
   end
 
@@ -24,7 +25,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :picture)
   end
 
 end
