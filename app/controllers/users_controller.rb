@@ -3,7 +3,11 @@ class UsersController < ApplicationController
 
   def home
     @user = current_user
+<<<<<<< HEAD
     @comments = @user.get_user_groups_comments
+=======
+    @comments = current_user.get_user_groups_comments
+>>>>>>> c5afc068df88b01be79d1c948d216bb1a1e66e8e
   end
 
   def new
@@ -25,7 +29,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :picture)
   end
 
 end

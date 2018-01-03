@@ -1,6 +1,6 @@
 class User < ApplicationRecord
+  mount_uploader :picture, PictureUploader
   validates :name, presence: true, uniqueness: true
-
   has_many :memberships
   has_many :groups, through: :memberships
   has_many :comments
@@ -15,11 +15,6 @@ class User < ApplicationRecord
 
     result.flatten!
     result.sort_by {|r| r.updated_at}
-
-    # Alternate comment selection
-    # Comment.all.select do |comment|
-    #   comment.group.user_ids.incude?(self.id)
-    # end
   end
 
   def available_movies
@@ -31,5 +26,4 @@ class User < ApplicationRecord
 
     movies
   end
-
 end

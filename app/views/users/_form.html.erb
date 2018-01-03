@@ -1,4 +1,5 @@
 <%= form_for @user do |f| %>
   <%= f.text_field :name, placeholder: "Name", class: 'session' %><br />
+  <%= f.file_field :picture, id: :user_picture %>
   <%= f.submit "Sign Up", class: 'session'  %>
 <% end %>
