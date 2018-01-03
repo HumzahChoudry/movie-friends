@@ -5,4 +5,5 @@ class Group < ApplicationRecord
 
   has_many :group_movies
   has_many :movies, through: :group_movies
+  has_many :comments, through: :group_movies
 end
