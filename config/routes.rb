@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: 'users#home'
+  root to: 'static#welcome'
+
+  get "/home", to: 'users#home'
 
   get "/login", to: 'sessions#new'
   post "/sessions", to: 'sessions#create'

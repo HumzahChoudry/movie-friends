@@ -1,8 +1,11 @@
 class User < ApplicationRecord
+  validates :name, presence: true, uniqueness: true
+
   has_many :memberships
   has_many :groups, through: :memberships
   has_many :comments
   has_many :admin_groups, class_name: "Group", foreign_key: "admin_id"
+<<<<<<< HEAD
 
   def get_user_groups_comments
     result = []
@@ -32,4 +35,7 @@ class User < ApplicationRecord
 
   
 
+=======
+  
+>>>>>>> 1680ffead1fee2d1a7cf69ebf7e10b6c68bd7488
 end

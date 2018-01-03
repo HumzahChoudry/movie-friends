@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :authorized, only: [:new, :create]
-  
+
   def new
   end
 
@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if @user
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to home_path
     else
       flash[:error] = ['Username not found']
       redirect_to login_path
