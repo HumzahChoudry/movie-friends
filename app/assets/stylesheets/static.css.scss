@@ -146,47 +146,27 @@ body {
   color: #faae71;
 }
 
-.message {
+.links {
   text-align: center;
   float: center;
   margin: auto;
-  width: 465px;
-  padding-bottom: 35px;
-  padding-top: 10px;
+  width: 580px;
+  padding-top: 30px;
 }
 
-.form_class {
-  text-align: center;
-  float: center;
-  margin: auto;
-  width: 415px;
-}
-
-input {
-  font-family: 'Raleway', sans-serif;
-  text-align: center;
-  font-size: 13pt;
-  background-color: white;
-  border-color: black;
-  border-width: 1px;
-  width: 300px;
-  height: 40px;
-}
-
-input[type=submit] {
-  background-color: transparent;
+a, a:visited {
   font-family: 'Slackey', cursive;
-  font-size: 27pt;
+  font-size: 40pt;
   color: white;
-  border-width: 0px;
-  position: relative;
-  z-index: 9;
-  height: 90px;
+  text-decoration: none;
 }
 
-input[type=submit]:hover {
+// .sign_up:hover {
+//   background: url(image-path('color_link.gif'));
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+// }
+
+a:hover {
   color: #fff79f;
-  // background: url(image-path('color_link.gif')) no-repeat;
-  // -webkit-background-clip: text;
-  // -webkit-text-fill-color: transparent;
 }
