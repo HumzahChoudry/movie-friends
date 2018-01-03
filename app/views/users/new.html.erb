@@ -1,1 +1,15 @@
-New User Page
+<%= render 'logo' %>
+
+<div class=message>
+<% if flash[:error] %>
+  <%flash[:error].each do |message|%>
+    <%= message %></br>
+  <% end %>
+<% else %>
+Cool! New Friend!
+<% end %>
+</div>
+
+<div class=form_class>
+<%= render 'form' %>
+</div>

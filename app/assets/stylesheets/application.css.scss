@@ -21,9 +21,15 @@ font-family: 'Raleway', sans-serif; */
 /* DARK BLUE #2d3750
 DARKEST BLUE #202940 */
 
+html {
+  height:100%;
+  background: #2d3750;
+  background: linear-gradient(#2d3750, #202940);
+}
+
 body {
+  font-family: 'Raleway', sans-serif;
   color: white;
-  font-size: 20pt;
 }
 
 
@@ -148,6 +154,8 @@ body {
 
 .message {
   text-align: center;
+  color: white;
+  font-size: 20pt;
   float: center;
   margin: auto;
   width: 465px;
@@ -162,7 +170,7 @@ body {
   width: 415px;
 }
 
-input {
+input.session {
   font-family: 'Raleway', sans-serif;
   text-align: center;
   font-size: 13pt;
@@ -173,7 +181,7 @@ input {
   height: 40px;
 }
 
-input[type=submit] {
+input[type=submit].session {
   background-color: transparent;
   font-family: 'Slackey', cursive;
   font-size: 27pt;
@@ -184,9 +192,42 @@ input[type=submit] {
   height: 90px;
 }
 
-input[type=submit]:hover {
+input[type=submit]:hover.session {
   color: #fff79f;
   // background: url(image-path('color_link.gif')) no-repeat;
   // -webkit-background-clip: text;
   // -webkit-text-fill-color: transparent;
+}
+
+.welcome_links {
+  text-align: center;
+  float: center;
+  margin: auto;
+  width: 580px;
+  padding-top: 30px;
+}
+
+a.welcome, a:visited.welcome {
+  font-family: 'Slackey', cursive;
+  font-size: 40pt;
+  color: white;
+  text-decoration: none;
+}
+
+// .sign_up:hover {
+//   background: url(image-path('color_link.gif'));
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+// }
+
+a.welcome:hover {
+  color: #fff79f;
+}
+
+a, a:visited {
+  color: white;
+}
+
+a:hover {
+  color: #fff79f;
 }
