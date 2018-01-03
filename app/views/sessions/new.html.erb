@@ -11,8 +11,5 @@ Welcome Back!
 </div>
 
 <div class=form_class>
-<%= form_tag sessions_path do %>
-  <%= text_field_tag :username, nil, placeholder: "Username" %><br />
-  <%= submit_tag "Sign In" %>
-<% end %>
+<%= render 'form' %>
 </div>
