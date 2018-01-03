@@ -15,11 +15,6 @@ class User < ApplicationRecord
 
     result.flatten!
     result.sort_by {|r| r.updated_at}
-
-    # Alternate comment selection
-    # Comment.all.select do |comment|
-    #   comment.group.user_ids.incude?(self.id)
-    # end
   end
 
   def available_movies
@@ -32,4 +27,12 @@ class User < ApplicationRecord
     movies
   end
 
+<<<<<<< HEAD
+=======
+
+
+# =======
+#
+# >>>>>>> 1680ffead1fee2d1a7cf69ebf7e10b6c68bd7488
+>>>>>>> d6c4baa78781d0658c12b052ce342fcaa0a30e2d
 end
