@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :authorized, only: [:new, :create]
 
   def home
+    @comments = current_user.get_user_groups_comments
   end
 
   def new

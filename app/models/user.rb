@@ -5,7 +5,6 @@ class User < ApplicationRecord
   has_many :groups, through: :memberships
   has_many :comments
   has_many :admin_groups, class_name: "Group", foreign_key: "admin_id"
-<<<<<<< HEAD
 
   def get_user_groups_comments
     result = []
@@ -16,11 +15,6 @@ class User < ApplicationRecord
 
     result.flatten!
     result.sort_by {|r| r.updated_at}
-
-    # Alternate comment selection
-    # Comment.all.select do |comment|
-    #   comment.group.user_ids.incude?(self.id)
-    # end
   end
 
   def available_movies
@@ -33,9 +27,9 @@ class User < ApplicationRecord
     movies
   end
 
-  
 
-=======
-  
->>>>>>> 1680ffead1fee2d1a7cf69ebf7e10b6c68bd7488
+
+# =======
+#
+# >>>>>>> 1680ffead1fee2d1a7cf69ebf7e10b6c68bd7488
 end
