@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :authorized, only: [:new, :create]
 
   def home
+    @user = current_user
   end
 
   def new
@@ -23,7 +24,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :picture)
   end
 
 end
