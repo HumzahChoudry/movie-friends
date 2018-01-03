@@ -23,8 +23,9 @@ DARKEST BLUE #202940 */
 
 html {
   height:100%;
-  background: #2d3750;
+  background-color: #2d3750;
   background: linear-gradient(#2d3750, #202940);
+  background-attachment: fixed;
 }
 
 body {
@@ -230,4 +231,62 @@ a, a:visited {
 
 a:hover {
   color: #fff79f;
+}
+
+a.comment_link, a.comment_link:visited {
+  color: black;
+}
+
+a.comment_link:hover {
+  color: #dd647a;
+}
+
+.all_comments {
+  position: absolute;
+  right: 15px;
+  overflow: auto;
+  width: 65%;
+}
+
+.comment {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  padding-left: 50px;
+  position: relative;
+  overflow: auto;
+}
+
+.comment_rating {
+  font-family: 'Slackey', cursive;
+  font-size: 20px;
+  float: left;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  width: 50px;
+}
+
+.comment_content {
+  float: left;
+  text-align: justify;
+}
+
+.comment_info {
+  font-size: 8pt;
+  color: grey;
+  position: relative;
+  top: 5px;
+}
+
+.lil_logo {
+  transform: scale(.50);
+  position: relative;
+  top: -90px;
+  left: -20px;
+}
+
+.lil_logo_container {
+  position: fixed;
+  width: 32%;
 }
