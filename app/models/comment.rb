@@ -8,9 +8,6 @@ class Comment < ApplicationRecord
 
 
   def get_rating
-    # Comment.all.select do |c|
-    #   c.parent_id = self.id
-    # end
     self.children.reduce(0) do |sum, comment|
       sum += comment.vote
     end
@@ -26,6 +23,10 @@ class Comment < ApplicationRecord
       end
     end
     result
+  end
+
+  def visible_by_user?(user_id)
+    self.group.user_ids.include?(user_id)
   end
 
 end
