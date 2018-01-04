@@ -50,9 +50,9 @@ GroupMovie.all.each do |group_movie|
     end
     3.times do
       user = group_movie.group.users.all.sample
-      child_comment = Comment.create(user: user, group_movie: group_movie, content: Faker::StarWars.unique.quote, vote: 1, parent_id: parent_comment.id)
+      child_comment = Comment.create(user: user, group_movie: group_movie, content: Faker::StarWars.quote + (1..888).to_a.sample.to_s, vote: 1, parent_id: parent_comment.id)
       user = group_movie.group.users.all.sample
-      grandchild_comment = Comment.create(user: user, group_movie: group_movie, content: Faker::RickAndMorty.unique.quote, vote: 1, parent_id: child_comment.id)
+      grandchild_comment = Comment.create(user: user, group_movie: group_movie, content: Faker::StarWars.quote + (1..888).to_a.sample.to_s, vote: 1, parent_id: child_comment.id)
     end
   end
 end

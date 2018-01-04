@@ -255,6 +255,23 @@ a.comment_link:hover {
   color: #dd647a;
 }
 
+.no_comments_container {
+  position: absolute;
+  right: 2vmin;
+  overflow: auto;
+  width: 65%;
+  font-family: 'Slackey', cursive;
+  font-size: 7vmin;
+  text-align: center;
+}
+
+.no_comments {
+position: relative;
+top: 50%;
+bottom: 50%;
+}
+
+
 .all_comments {
   position: absolute;
   right: 2vmin;
@@ -265,6 +282,19 @@ a.comment_link:hover {
 .comment {
   background-color: white;
   color: black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  padding-left: 50px;
+  position: relative;
+  overflow: auto;
+}
+
+.parent_comment {
+  background-color: white;
+  color: black;
+  margin-top: 20px;
+  margin-bottom: 10px;
   padding: 10px;
   padding-left: 50px;
   position: relative;
@@ -298,9 +328,27 @@ a.comment_link:hover {
   position: relative;
   top: -12.5vmin;
   left: -2.5vmin;
+  z-index: 1;
 }
 
 .lil_logo_container {
   position: fixed;
   width: 32%;
+  height:auto;
+  z-index: 1;
+}
+
+.replies {
+  margin-left: 50px;
+}
+
+.family {
+  margin-bottom: 50px;
+}
+
+.menu {
+  position: relative;
+  z-index: 2;
+  top: 55.5vmin;
+  left: 10vmin;
 }

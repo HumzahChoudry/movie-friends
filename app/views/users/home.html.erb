@@ -6,16 +6,32 @@
 <%= render 'logo' %>
 </div>
 </div>
-<div>
+
+<div class="menu">
   <%= link_to "Movies", movies_path %>
   <%= link_to "Groups", groups_path %>
+  <%= link_to "Sign Out", logout_path %>
 </div>
-
-
-
-
 
 
 <div class=all_comments>
-    <%= grow_tree_for @comments %>
+    <%= plant_trees_for @comments %>
 </div>
+
+<% if @comments = [] %>
+
+<!-- <div class=no_comments_container>
+  <div class=no_comments>
+  <p>
+  No comments <br />
+  to view... <br />
+  YET!
+  </p>
+  </div>
+</div>
+
+<% else %> -->
+
+
+
+<% end %>
