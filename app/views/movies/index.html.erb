@@ -1,5 +1,11 @@
-<!-- List of movies in your group -->
-
+<!-- List of movies in your groups -->
+<%= current_user.name %>
+<% @movies.each do |movie| %>
+  <li><%= movie.name %> </li>
+  <% movie.groups.each do |group| %>
+    <li><%= link_to group.name, group_movie_path(group, movie) %> </li>
+  <% end %>
+<% end %>
 
 
 

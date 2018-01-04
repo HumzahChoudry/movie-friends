@@ -1,6 +1,14 @@
 <!-- List of your groups -->
-
-
-
+<ul>
+<% @my_groups.each do |group|  %>
+  <li><%= link_to group.name, group_path(group) %></li>
+<% end %>
+</ul>
 
 <!-- List of all group available -->
+
+<ul>
+<% @all_groups.each do |group|  %>
+  <li><%= link_to group.name, group_path(group) %></li>
+<% end %>
+</ul>
