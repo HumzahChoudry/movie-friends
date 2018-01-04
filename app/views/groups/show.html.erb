@@ -3,12 +3,11 @@
 <h3>Members</h3>
 <ul>
   <% @group.users.each do |user| %>
-    <li><%= link_to user.name, home %></li>
+    <li><%= link_to user.name, user_path(user.id) %></li>
   <% end %>
 </ul>
-
-<!-- If in group
-      SHOW comments
-
-    ELSE SHOW Join group
- -->
+<% if @group.users.include?(@user) %>
+<!-- SHOW comments -->
+<% else %>
+<%= button_to "Join", join_group_path, params: {'group[id]' => @group.id} %>
+<% end %>

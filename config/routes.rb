@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "/signup", to: 'users#new'
   post "/users", to: 'users#create'
   get '/edit', to: 'users#edit'
+  get '/users/:id', to: 'users#show', as: 'user'
   patch '/users/:id', to: 'users#update'
   delete '/users/:id', to: 'users#destroy'
 
@@ -33,6 +34,7 @@ Rails.application.routes.draw do
   patch "/groups/:group", to: 'groups#update'
   get "/groups/:group/:movie", to: 'groups#show_movie_filter', as: "group_movie"
   delete '/groups/:group', to: 'groups#destroy'
+  post "join", to: 'groups#join', as: "join_group"
 
   get "/comments/:id", to: 'comments#show', as: "comment"
   post "/comments", to: 'comments#create'

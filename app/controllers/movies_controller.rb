@@ -28,4 +28,5 @@ class MoviesController < ApplicationController
     end
     @movies.flatten!
   end
+
 end
