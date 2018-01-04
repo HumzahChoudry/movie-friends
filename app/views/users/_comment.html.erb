@@ -1,0 +1,17 @@
+<div class=comment>
+  <div class=comment_rating>
+    <%= comment.get_rating %>
+  </div>
+  <div class=comment_content>
+  <%= comment.content %>
+  <div class=comment_info>
+    <%= comment.time_since_created %>
+    by <%= link_to comment.user.name, users_path(comment.user), { class: "comment_link" } %>
+    to <%= link_to comment.group.name, group_path(comment.group), { class: "comment_link" } %>
+    about <%= link_to comment.movie.name, movie_path(comment.movie), { class: "comment_link" } %>
+    <% if comment.children %>
+    - <%= comment.children.count %> replies
+    <% end %>
+  </div>
+  </div>
+</div>
