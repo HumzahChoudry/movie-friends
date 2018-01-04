@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def home
     @user = current_user
-    @comments = current_user.get_user_groups_parent_comments
+    @comments = current_user.get_all_comment_trees_visible_by_user
   end
 
   def new
