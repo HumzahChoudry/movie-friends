@@ -13,6 +13,25 @@ class Comment < ApplicationRecord
     end
   end
 
+
+  def time_since_created
+    if self.created_at.today?
+      hours_since = (((Time.now - self.created_at)/60)/60).floor.to_s
+      if hours_since == "1"
+        time_string = "Submitted " + hours_since + " hour ago"
+      else
+        time_string = "Submitted " + hours_since + " hours ago"
+      end
+    else
+      days_since = ((((Time.now - self.created_at)/60)/60)/24).floor.to_s
+      if days_since == "1"
+        time_string = "Submitted " + days_since + " day ago"
+      else
+        time_string = "Submitted " + days_since + " days ago"
+      end
+    end
+  end
+
   def make_tree
     result = {comment: self}
     if self.children.empty?

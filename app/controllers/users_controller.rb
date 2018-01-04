@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def home
     @user = current_user
-    @comments = current_user.get_user_groups_comments
+    @comments = current_user.get_user_groups_parent_comments
   end
 
   def new
