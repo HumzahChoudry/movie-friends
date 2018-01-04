@@ -1,0 +1,13 @@
+<%= @comment.content%>
+
+<br>
+
+<%= form_for @new_comment do |f| %>
+<%= f.number_field :user_id, value: @user.id, type: :hidden %>
+<%= f.number_field :group_movie_id, value: @comment.group_movie_id, type: :hidden %>
+<%= f.number_field :vote, value: 1, type: :hidden %>
+<%= f.number_field :parent_id, value: @comment.id, type: :hidden %>
+<%= text_field_tag :source, nil, value: @source, type: :hidden%>
+<%= f.text_area :content, placeholder: "Opinion!" %>
+<%= f.submit %>
+<% end %>

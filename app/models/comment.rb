@@ -14,7 +14,7 @@ class Comment < ApplicationRecord
   end
 
   def make_tree
-    result = {parent: self}
+    result = {comment: self}
     if self.children.empty?
       result[:children] = nil
     else

@@ -34,4 +34,9 @@ Rails.application.routes.draw do
   get "/groups/:group/:movie", to: 'groups#show_movie_filter', as: "group_movie"
   delete '/groups/:group', to: 'groups#destroy'
 
+  get "/comments/:id", to: 'comments#show', as: "comment"
+  post "/comments", to: 'comments#create'
+  patch "/comments/:id", to: 'comments#update'
+  delete "/comments/:id", to: 'comments#destroy'
+
 end
