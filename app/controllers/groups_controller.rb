@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(params[:name])
+    # Group admin becomes user upon creating group, user joins group, must happen in that order
 
     if @group.valid?
       @group.save

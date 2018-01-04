@@ -1,0 +1,9 @@
+<h1><%= @user.name %></h1>
+
+<%= image_tag(@user.picture_url, width: 600) if @user.picture.present? %>
+
+<% @user.comments.each do |comment|%>
+  <li><%= comment.content %></li>
+<% end %>
+
+<!-- stats on user -->

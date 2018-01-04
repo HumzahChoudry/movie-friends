@@ -1,0 +1,14 @@
+<h1><%= @group.name %></h1>
+
+<h3>Members</h3>
+<ul>
+  <% @group.users.each do |user| %>
+    <li><%= link_to user.name, home %></li>
+  <% end %>
+</ul>
+
+<!-- If in group
+      SHOW comments
+
+    ELSE SHOW Join group
+ -->
