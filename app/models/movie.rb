@@ -1,4 +1,5 @@
 class Movie < ApplicationRecord
+  mount_uploader :picture, PictureUploader
   has_many :group_movies
   has_many :groups, through: :group_movies
   has_many :comments, through: :group_movies

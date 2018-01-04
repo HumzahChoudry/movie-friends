@@ -1,0 +1,5 @@
+<%= form_for @group do |f| %>
+  <%= f.text_field :name, placeholder: "Name" %><br />
+  <%= f.file_field :picture, id: :group_picture %>
+  <%= f.submit "Sign Up" %>
+<% end %>
