@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  group: one
-  movie: one
-
-two:
-  group: two
-  movie: two
