@@ -13,3 +13,7 @@ Welcome Back!
 <div class=form_class>
 <%= render 'form' %>
 </div>
+
+<% if flash[:error] %>
+<div class="sign_up_error"><%= link_to "Sign Up", signup_path, { class: "sign_up_error" } %></span>
+<% end %>

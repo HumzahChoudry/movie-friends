@@ -194,7 +194,7 @@ input[type=submit].session {
   border-width: 0px;
   position: relative;
   z-index: 9;
-  height: 90px;
+  height: 15vmin;
 }
 
 input[type=submit]:hover.session {
@@ -224,6 +224,16 @@ a.welcome, a:visited.welcome {
 //   -webkit-background-clip: text;
 //   -webkit-text-fill-color: transparent;
 // }
+
+.sign_up_error {
+  text-align: center;
+  float: center;
+  margin: auto;
+  width: 58vmin;
+  font-family: 'Slackey', cursive;
+  font-size: 4.5vmin;
+  text-decoration: none;
+}
 
 a.welcome:hover {
   color: #fff79f;
