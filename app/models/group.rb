@@ -1,4 +1,5 @@
 class Group < ApplicationRecord
+  mount_uploader :picture, PictureUploader
   has_many :memberships
   has_many :users, through: :memberships
   belongs_to :admin, class_name: "User"
