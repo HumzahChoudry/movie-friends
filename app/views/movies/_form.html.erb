@@ -1,0 +1,5 @@
+<%= form_for @movie do |f| %>
+  <%= f.text_field :name, placeholder: "Name" %><br />
+  <%= f.file_field :picture, id: :movie_picture %>
+  <%= f.submit "Sign Up" %>
+<% end %>
