@@ -2,9 +2,13 @@
 <%= render 'menu' %>
 
 <div class=all_comments>
-<center><h1>Your Groups:</h1></center>
+<center><span class=page_title>Your Groups:</span></center>
 
 <div class=my_movies>
+
+<% if @my_groups.empty? %>
+  <center>You have not joined any Groups yet!</center>
+<% end %>
 
 <% @my_groups.each do |group| %>
 
@@ -24,7 +28,7 @@
 
 </div>
 
-<center><h1>Other Groups:</h1></center>
+<center><span class=page_title>Other Groups:</span></center>
 
 <div class=other_movies>
 
@@ -48,10 +52,10 @@
 </div>
 
 <div class='content'>
-Groups
+Create a New Group:<br /><br />
 <%= form_for @new_group do |f| %>
-<%= f.text_field :name, placeholder: "Group Name" %>
-<%= f.number_field :admin_id, value: @user.id, type: :hidden %>
+<%= f.text_field :name, placeholder: "Group Name" %><br />
+<%= f.number_field :admin_id, value: @user.id, type: :hidden %><br />
 <%= f.submit %>
 <% end %>
 </div>

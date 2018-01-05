@@ -12,11 +12,10 @@ class CommentsController < ApplicationController
       @group_movie = GroupMovie.find_or_create_by(movie_id: params[:comment][:movie], group_id: params[:comment][:group])
       @comment.group_movie = @group_movie
     end
-    
+
     if @comment.valid?
       @comment.save
     else
-      byebug
       flash[:error] = @comment.errors.full_messages
     end
     redirect_to request.referrer

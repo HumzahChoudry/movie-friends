@@ -3,12 +3,13 @@
 <%= render 'menu' %>
 
 <div class=all_comments>
-<center><h1>Your Movies:</h1></center>
+<center><span class=page_title>Your Movies:</span></center>
 
 <div class=my_movies>
-
+  <% if @my_movies.empty? %>
+    <center>You have not joined any Groups yet!</center>
+  <% end %>
 <% @my_movies.each do |movie| %>
-
   <div class=movie_container>
   <span class=movie_name>
     <%= link_to movie.name, movie_path(movie) %>
@@ -20,12 +21,11 @@
     <% end %>
   </span>
   </div>
-
 <% end %>
 
 </div>
 
-<center><h1>Other Movies:</h1></center>
+<center><span class=page_title>Other Movies:</span></center>
 
 <div class=other_movies>
 
@@ -49,7 +49,6 @@
 </div>
 
 <div class='content'>
-Movies
 </div>
 
 

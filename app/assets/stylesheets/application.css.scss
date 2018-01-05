@@ -184,6 +184,7 @@ input.session {
   border-width: 0;
   width: 40vmin;
   height: 5.5vmin;
+  margin: 2px;
 }
 
 input[type=submit].session {
@@ -553,4 +554,42 @@ a.add_comment:hover {
 label {
   font-size: 20px;
   padding-bottom: 2px;
+}
+
+.page_title {
+  font-family: 'Slackey', cursive;
+  font-size: 5vmin;
+}
+
+input#group_name {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  font-size: 2vmin;
+  background-color: white;
+  border-width: 0;
+  width: 30vmin;
+  height: 3vmin;
+  margin: 2px;
+}
+
+input#user_name {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  font-size: 2vmin;
+  background-color: white;
+  border-width: 0;
+  width: 30vmin;
+  height: 3vmin;
+  margin: 2px;
+}
+
+input#user_password {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  font-size: 2vmin;
+  background-color: white;
+  border-width: 0;
+  width: 30vmin;
+  height: 3vmin;
+  margin: 2px;
 }
