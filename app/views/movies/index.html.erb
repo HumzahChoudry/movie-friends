@@ -15,7 +15,7 @@
   </span><br /><br />
   <span class=movie_group_names>
     Groups:
-    <% movie.groups.each do |group| %>
+    <% movie.user_groups(@user.id).each do |group| %>
       <%= link_to group.name, group_movie_path(group, movie) %>
     <% end %>
   </span>

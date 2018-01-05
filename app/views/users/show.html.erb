@@ -4,10 +4,34 @@
 
 <div class='content'>
   <h1><%= @user.name %></h1>
-  <%= image_tag(@user.picture_url, width: 600) if @user.picture.present? %>
+  <% if @user.picture.present? %>
+   <%= image_tag(@user.picture_url, width: '70%') %>
+ <% else %>
+   <%= image_tag("gen_user_pic.gif", :alt => "Upload a picture!") %>
+ <% end %>
 
-  THIS SHOULD SHOW JUST COMMENTS I'VE MADE
+ <div class=message>
+ <% if flash[:error] %>
+   <%flash[:error].each do |message|%>
+     <%= message %></br>
+   <% end %>
+ <% end %>
+ </div>
+
+  <%= form_for @user do |f| %>
+    <%= f.label :name, value: "EDIT USERNAME", class: 'session' %><br />
+    <%= f.text_field :name, placeholder: "Name", class: 'session' %><br />
+    <%= f.label :password, value: "ENTER PASSWORD TO CONFIRM", class: 'session' %><br />
+    <%= f.password_field :password, value: nil, placeholder: "Password", class: 'session' %><br />
+    <%= f.label :picture, value: "EDIT PICTURE" %>
+    <%= f.file_field :picture, id: :user_picture %>
+    <%= f.submit class: 'session'  %>
+  <% end %>
+
 
 </div>
 
 <!-- stats on user -->
+<div class='all_comments'>
+  <%= plant_trees_for @comments %>
+<div>

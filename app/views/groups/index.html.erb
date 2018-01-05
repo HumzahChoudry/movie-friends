@@ -49,4 +49,9 @@
 
 <div class='content'>
 Groups
+<%= form_for @new_group do |f| %>
+<%= f.text_field :name, placeholder: "Group Name" %>
+<%= f.number_field :admin_id, value: @user.id, type: :hidden %>
+<%= f.submit %>
+<% end %>
 </div>

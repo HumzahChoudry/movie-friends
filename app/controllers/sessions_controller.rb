@@ -6,14 +6,13 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(name: params[:username])
-
-    if @user
-      session[:user_id] = @user.id
-      redirect_to home_path
-    else
-      flash[:error] = ['Username not found']
-      redirect_to login_path
-    end
+      if @user && @user.authenticate(params[:password])
+        session[:user_id] = @user.id
+        redirect_to home_path
+      else
+        flash[:error] = ['Username and password do not match']
+        redirect_to login_path
+      end
   end
 
   def destroy

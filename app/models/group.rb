@@ -12,6 +12,14 @@ class Group < ApplicationRecord
   validates :name, uniqueness: true
 
   def visible_comment_trees
-    self.comments.select {|comment| comment.parent_id == nil && comment.content != nil}.sort_by {|comment| comment.updated_at}.map(&:make_tree)
+    self.comments.select {|comment| comment.parent_id == nil && comment.content != nil}.sort_by {|comment| comment.updated_at}.reverse.map(&:make_tree)
+  end
+
+  def add_user(user)
+    if !self.users.include?(user)
+      self.users << user
+    else
+      return false
+    end
   end
 end

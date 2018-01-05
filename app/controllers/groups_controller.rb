@@ -4,14 +4,14 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new(params[:name])
-    # Group admin becomes user upon creating group, user joins group, must happen in that order
-
+    @group = Group.new(group_params)
     if @group.valid?
       @group.save
+      @group.users << current_user
+      redirect_to group_path(@group.id)
     else
       flash[:error] = @group.errors.full_messages
-      redirect_to group_path
+      redirect_to groups_path
     end
   end
 
@@ -21,7 +21,8 @@ class GroupsController < ApplicationController
     @comments = @group.visible_comment_trees
     @vote = Comment.new
     @new_comment = Comment.new
-    @movies = @group.movies
+    @movies = Movie.all
+
   end
 
   def index
@@ -30,13 +31,13 @@ class GroupsController < ApplicationController
     @all_groups = Group.all.select {|g| !g.users.include?(@user)}
     @vote = Comment.new
     @new_comment = Comment.new
+    @new_group = Group.new
   end
 
   def join
     @user = current_user
     group = Group.find(params[:group][:id])
-    if !group.users.include?(@user)
-      group.users << @user
+    if group.add_user(@user)
     else
       flash[:error] = "User already included in group"
     end
@@ -60,5 +61,10 @@ class GroupsController < ApplicationController
     @new_comment = Comment.new
     @vote = Comment.new
   end
+
+  private
+    def group_params
+      params.require(:group).permit(:name, :admin_id)
+    end
 
 end

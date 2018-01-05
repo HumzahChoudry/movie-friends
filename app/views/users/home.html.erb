@@ -6,14 +6,17 @@
 
 <div class='content'>
 
-  <div id='home_userimage'><%= image_tag("gen_user_pic.gif", :alt => "Upload a picture!") %></div>
+  <div id='home_userimage'>
+    <% if @user.picture.present? %>
+     <%= image_tag(@user.picture_url, width: '70%') %>
+   <% else %>
+     <%= image_tag("gen_user_pic.gif", :alt => "Upload a picture!") %>
+   <% end %>
+ </div>
   <br /><div id='home_welcome'>
   <span id='home_username'>Welcome,</span>
   <span id='home_username'><%= link_to @user.name, user_path(@user) %>!</span>
 </div><br />
-  EDIT OR PROFILE?<br /><br />
-  CONTENT OF HOME PAGE<br />
-  MAYBE COMMENT WITH OPTION TO POST NEW TO ANY MOVIE/GROUP COMBO?<br />
 
 </div>
 

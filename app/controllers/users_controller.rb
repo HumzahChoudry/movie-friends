@@ -26,14 +26,31 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find(params[:id])
+
+    if !@user.authenticate(params[:user][:password])
+      flash[:error] = ["Incorrect Password"]
+      redirect_to user_path(@user.id)
+    elsif @user.update(user_params)
+      redirect_to user_path(@user.id)
+    else
+      flash[:error] = @user.errors.full_messages
+      redirect_to user_path(@user.id)
+    end
+  end
+
   def show
     @user = User.find(params[:id])
+    @comments = @user.get_user_comment_trees
+    @new_comment = Comment.new
+    @vote = Comment.new
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :picture)
+    params.require(:user).permit(:name, :picture, :password)
   end
 
 end

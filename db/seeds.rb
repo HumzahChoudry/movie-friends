@@ -13,20 +13,20 @@ Movie.create(name: "Attack the Block", image_url: "example")
 Movie.create(name: "The Big Sick", image_url: "example")
 Movie.create(name: "Get Out", image_url: "example")
 
-User.create(name: "Matt")
-User.create(name: "Truman")
-User.create(name: "Humzah")
+User.create(name: "Matt", password: "password")
+User.create(name: "Truman", password: "password")
+User.create(name: "Humzah", password: "password")
 
 3.times do
   i ||=0
   i += 1
   group = Group.create(name: "House " + Faker::GameOfThrones.unique.house, admin_id: i)
-  user = User.select {|user| !user.groups.include?(group)}.sample
+  user = User.find(i)
   group.users << user
 end
 
 6.times do
-  user = User.create(name: Faker::Twitter.unique.screen_name)
+  user = User.create(name: Faker::Twitter.unique.screen_name, password: "password")
   2.times do
     Group.all.select {|group| !group.users.include?(user)}.sample.users << user
   end

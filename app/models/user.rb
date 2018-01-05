@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_secure_password
   mount_uploader :picture, PictureUploader
   validates :name, presence: true, uniqueness: true
   has_many :memberships
@@ -25,8 +26,6 @@ class User < ApplicationRecord
     self.groups.each do |group|
       movies[group_id] << group.movies
     end
-
-
     movies
   end
 
@@ -35,7 +34,7 @@ class User < ApplicationRecord
   end
 
   def get_user_comment_trees
-    self.comments.select {|comment| comment.parent_id == nil && comment.content != nil}.sort_by {|comment| comment.updated_at}.map(&:make_tree)
+    self.comments.select {|comment| comment.parent_id == nil && comment.content != nil}.sort_by {|comment| comment.updated_at}.reverse.map(&:make_tree)
   end
 
 end
