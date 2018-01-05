@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20180103230302) do
     t.integer "user_id"
     t.integer "group_movie_id"
     t.string "content"
-    t.integer "vote"
+    t.integer "vote", default: 1
     t.integer "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
