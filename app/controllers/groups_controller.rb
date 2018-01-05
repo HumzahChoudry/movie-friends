@@ -43,6 +43,14 @@ class GroupsController < ApplicationController
     redirect_to group_path(group)
   end
 
+  def leave
+    @user = current_user
+    group = Group.find(params[:group][:id])
+    membership = Membership.find_by(user: @user, group: group)
+    membership.destroy
+    redirect_to request.referrer
+  end
+
   def show_movie_filter
     @user = current_user
     @group = Group.find(params[:group])
