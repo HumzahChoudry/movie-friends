@@ -1,18 +1,56 @@
 <!-- List of movies in your groups -->
-<%= current_user.name %>
+<%= render 'lil_logo' %>
+<%= render 'menu' %>
+
+<div class=all_comments>
+<center><h1>Your Movies:</h1></center>
+
+<div class=my_movies>
+
 <% @my_movies.each do |movie| %>
-  <li><%= link_to movie.name, movie_path(movie) %> </li>
-  <% movie.groups.each do |group| %>
-    <li><%= link_to group.name, group_movie_path(group, movie) %> </li>
-  <% end %>
+
+  <div class=movie_container>
+  <span class=movie_name>
+    <%= link_to movie.name, movie_path(movie) %>
+  </span><br /><br />
+  <span class=movie_group_names>
+    Groups:
+    <% movie.groups.each do |group| %>
+      <%= link_to group.name, group_movie_path(group, movie) %>
+    <% end %>
+  </span>
+  </div>
+
 <% end %>
-<br /><br /><br />
+
+</div>
+
+<center><h1>Other Movies:</h1></center>
+
+<div class=other_movies>
+
 <% @other_movies.each do |movie| %>
-  <li><%= movie.name %> </li>
-  <% movie.groups.each do |group| %>
-    <li><%= link_to group.name, group_movie_path(group, movie) %> </li>
-  <% end %>
+
+<div class=movie_container>
+  <span class=movie_name>
+    <%= movie.name %>
+  </span><br /><br />
+  <span class=movie_group_names>
+    Groups:
+    <% movie.groups.each do |group| %>
+      <%= link_to group.name, group_movie_path(group, movie) %>
+    <% end %>
+  </span>
+  </div>
+
 <% end %>
+
+</div>
+</div>
+
+<div class='content'>
+Movies
+</div>
 
 
 

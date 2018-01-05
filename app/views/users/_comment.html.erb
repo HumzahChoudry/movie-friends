@@ -4,7 +4,9 @@
     <%=link_to "▲", vote_path(parent_id: comment.id, vote: 1, content: nil), method: :post %>
   </div>
   <div class=down>
-    <%=link_to "▼", vote_path(parent_id: comment.id, vote: -1, content: nil), method: :post %>
+    <span class=down_link>
+    <%=link_to "▼", vote_path(parent_id: comment.id, vote: -1, content: nil), method: :post%>
+    </span>
   </div>
   <div class=comment_rating>
     <span class=rating><%= comment.get_rating %></span>
