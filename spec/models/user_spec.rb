@@ -4,6 +4,7 @@ RSpec.describe User, :type => :model do
   let(:user) {
     User.create(
       :name => "Mindy",
+      :password => "Cool"
     )
   }
 
@@ -42,7 +43,7 @@ RSpec.describe User, :type => :model do
     user.name = "Jamie"
     user.password = "Pass"
     user.save
-    expect(user.password).to eq("Pass")
+    expect(user.authenticate("Pass")).to be_truthy
   end
 
   it "may have an array of groups" do

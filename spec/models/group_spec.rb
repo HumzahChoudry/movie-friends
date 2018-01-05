@@ -4,6 +4,7 @@ RSpec.describe Group, :type => :model do
   let(:user) {
     User.create(
       :name => "Mindy",
+      :password => "Cool"
     )
   }
 
@@ -41,7 +42,7 @@ RSpec.describe Group, :type => :model do
   end
 
   it "passes if it does have an admin_id" do
-    User.create(name: "Joe")
+    User.create(name: "Joe", password: "YEYE")
     group = Group.new
     group.name = "SuperGroup"
     group.admin_id = 1

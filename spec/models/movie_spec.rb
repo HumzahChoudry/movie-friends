@@ -2,6 +2,7 @@ RSpec.describe Movie, :type => :model do
   let(:user) {
     User.create(
       :name => "Mindy",
+      :password => "Cool"
     )
   }
 
