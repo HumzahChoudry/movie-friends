@@ -35,11 +35,12 @@ Rails.application.routes.draw do
   get "/groups/:group/:movie", to: 'groups#show_movie_filter', as: "group_movie"
   delete '/groups/:group', to: 'groups#destroy'
   post "join", to: 'groups#join', as: "join_group"
+  post "leave", to: 'groups#leave', as: "leave_group"
 
   get "/comments/:id", to: 'comments#show', as: "comment"
   post "/comments", to: 'comments#create'
   patch "/comments/:id", to: 'comments#update'
   delete "/comments/:id", to: 'comments#destroy'
-  post "/vote", to: 'comments#vote', as: "vote" 
+  post "/vote", to: 'comments#vote', as: "vote"
 
 end
