@@ -24,8 +24,6 @@ class User < ApplicationRecord
     self.groups.each do |group|
       movies[group_id] << group.movies
     end
-
-
     movies
   end
 

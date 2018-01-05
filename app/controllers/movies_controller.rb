@@ -24,7 +24,9 @@ class MoviesController < ApplicationController
 
   def index
     @user = current_user
-    @my_movies = Movie.all.select{ |movie| movie.groups.any?{ |group| group.user_ids.include?(@user.id)}}
+    @my_movies = Movie.all.select{ |movie|
+      movie.groups.any?{ |group|
+        group.user_ids.include?(@user.id)}}
 
     @other_movies = Movie.all.reject{ |movie| movie.groups.any?{ |group| group.user_ids.include?(@user.id)}}
   end
