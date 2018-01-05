@@ -48,6 +48,8 @@ class GroupsController < ApplicationController
     @movie = Movie.find(params[:movie])
     group_movie = GroupMovie.find_by(group_id: params[:group], movie_id: params[:movie])
     @comments = group_movie.visible_comment_trees
+    @new_comment = Comment.new
+    @vote = Vote.new
   end
 
 end
