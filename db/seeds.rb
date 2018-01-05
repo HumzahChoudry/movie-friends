@@ -33,7 +33,10 @@ end
 
 Group.all.each do |group|
   3.times do
-    group.movies << Movie.all.sample
+    movie = Movie.all.sample
+    if !group.movies.include?(movie)
+      group.movies << movie
+    end
   end
 end
 
