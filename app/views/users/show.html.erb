@@ -3,7 +3,7 @@
 <!-- render 'comments' BROKEN -->
 
 <div class='content'>
-  <h1><%= @user.name %></h1>
+  <%= @user.name %><br />
   <% if @user.picture.present? %>
    <%= image_tag(@user.picture_url, width: '70%') %>
  <% else %>
@@ -18,15 +18,15 @@
  <% end %>
  </div>
 
+<% if @user == current_user %>
+Edit your account:<br /><br />
   <%= form_for @user do |f| %>
-    <%= f.label :name, value: "EDIT USERNAME", class: 'session' %><br />
-    <%= f.text_field :name, placeholder: "Name", class: 'session' %><br />
-    <%= f.label :password, value: "ENTER PASSWORD TO CONFIRM", class: 'session' %><br />
-    <%= f.password_field :password, value: nil, placeholder: "Password", class: 'session' %><br />
-    <%= f.label :picture, value: "EDIT PICTURE" %>
-    <%= f.file_field :picture, id: :user_picture %>
-    <%= f.submit class: 'session'  %>
+    <%= f.text_field :name, placeholder: @user.name %><br />
+    <%= f.password_field :password, value: nil, placeholder: "password" %><br />
+    <%= f.file_field :picture, id: :user_picture %><br />
+    <%= f.submit  %>
   <% end %>
+<% end %>
 
 
 </div>
