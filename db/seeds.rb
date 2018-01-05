@@ -48,7 +48,6 @@ GroupMovie.all.each do |group_movie|
     user = group_movie.group.users.all.sample
     parent_comment = Comment.new(user: user, group_movie: group_movie, content: Faker::BackToTheFuture.unique.quote, vote: 1, parent_id: nil)
     if !parent_comment.valid?
-      byebug
     else
       parent_comment.save
     end

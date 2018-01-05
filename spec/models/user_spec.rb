@@ -4,6 +4,7 @@ RSpec.describe User, :type => :model do
   let(:user) {
     User.create(
       :name => "Mindy",
+      :password => "Cool"
     )
   }
 
@@ -16,6 +17,7 @@ RSpec.describe User, :type => :model do
   let(:filmpals) {
     Group.create(
       :name => "Ferris Wheel",
+      :admin_id => 1
     )
   }
 
@@ -28,7 +30,27 @@ RSpec.describe User, :type => :model do
     expect(User.create(name: "Mindy")).not_to be_valid
   end
 
-  
+  it 'has name' do
+    user = User.new
+    user.name = "Jamie"
+    user.password = "Pass"
+    user.save
+    expect(user.name).to eq("Jamie")
+  end
+
+  it 'has password' do
+    user = User.new
+    user.name = "Jamie"
+    user.password = "Pass"
+    user.save
+    expect(user.authenticate("Pass")).to be_truthy
+  end
+
+  it "may have an array of groups" do
+    user.groups << filmpals
+    expect(user.groups).to include(filmpals)
+  end
+
   # it "is not valid without a password" do
   #   expect(User.new(name: "Name")).not_to be_valid
   # end

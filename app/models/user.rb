@@ -30,7 +30,7 @@ class User < ApplicationRecord
   end
 
   def get_all_comment_trees_visible_by_user
-    self.groups.map(&:visible_comment_trees).flatten.sort_by {|comment_tree| comment_tree[:comment][:updated_at]}
+    self.groups.map(&:visible_comment_trees).flatten.sort_by {|comment_tree| comment_tree[:comment][:updated_at]}.reverse
   end
 
   def get_user_comment_trees
