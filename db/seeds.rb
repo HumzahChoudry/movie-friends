@@ -21,13 +21,14 @@ User.create(name: "Humzah")
   i ||=0
   i += 1
   group = Group.create(name: "House " + Faker::GameOfThrones.unique.house, admin_id: i)
-  group.users << User.find(i)
+  user = User.select {|user| !user.groups.include?(group)}.sample
+  group.users << user
 end
 
 6.times do
   user = User.create(name: Faker::Twitter.unique.screen_name)
-  3.times do
-    Group.all.sample.users << user
+  2.times do
+    Group.all.select {|group| !group.users.include?(user)}.sample.users << user
   end
 end
 
