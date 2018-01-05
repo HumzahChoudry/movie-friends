@@ -28,6 +28,10 @@ class GroupsController < ApplicationController
     @user = current_user
     @my_groups = @user.groups
     @all_groups = Group.all.select {|g| !g.users.include?(@user)}
+    #@all_groups = Group.joins(:memberships).joins(:users).where()
+    #Client.where(first_name: 'Lifo')
+    #Article.where(author: author)
+    #Author.joins(:articles).where(articles: { author: author })
     @vote = Comment.new
     @new_comment = Comment.new
   end
@@ -35,8 +39,7 @@ class GroupsController < ApplicationController
   def join
     @user = current_user
     group = Group.find(params[:group][:id])
-    if !group.users.include?(@user)
-      group.users << @user
+    if group.add_user(@user)
     else
       flash[:error] = "User already included in group"
     end

@@ -263,7 +263,8 @@ a.comment_link:hover {
   font-family: 'Slackey', cursive;
   font-size: 7vmin;
   text-align: center;
-  top: 5vmin;
+  top: 100px;
+  z-index: 1;
 }
 
 .no_comments {
@@ -414,6 +415,7 @@ bottom: 50%;
   padding-bottom: 10px;
   position: relative;
   overflow:auto;
+  z-index: 5;
 }
 
 a.add_comment {
