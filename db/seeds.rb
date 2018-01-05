@@ -24,7 +24,7 @@ User.create(name: "Humzah")
   group.users << User.find(i)
 end
 
-10.times do
+6.times do
   user = User.create(name: Faker::Twitter.unique.screen_name)
   3.times do
     Group.all.sample.users << user
@@ -32,7 +32,7 @@ end
 end
 
 Group.all.each do |group|
-  3.times do
+  2.times do
     movie = Movie.all.sample
     if !group.movies.include?(movie)
       group.movies << movie
@@ -43,7 +43,7 @@ end
 
 
 GroupMovie.all.each do |group_movie|
-  5.times do
+  3.times do
     user = group_movie.group.users.all.sample
     parent_comment = Comment.new(user: user, group_movie: group_movie, content: Faker::BackToTheFuture.unique.quote, vote: 1, parent_id: nil)
     if !parent_comment.valid?
@@ -51,7 +51,7 @@ GroupMovie.all.each do |group_movie|
     else
       parent_comment.save
     end
-    3.times do
+    2.times do
       user = group_movie.group.users.all.sample
       child_comment = Comment.create(user: user, group_movie: group_movie, content: Faker::StarWars.quote + (1..888).to_a.sample.to_s, vote: 1, parent_id: parent_comment.id)
       user = group_movie.group.users.all.sample
