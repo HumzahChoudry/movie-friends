@@ -17,7 +17,20 @@ class CommentsController < ApplicationController
     else
       flash[:error] = @comment.errors.full_messages
     end
-    redirect_to comment_path(@comment.parent)
+    redirect_to :back
+  end
+
+  def vote
+    @user = current_user
+    parent_comment = Comment.find(params[:parent_id])
+    @vote = Comment.new(user_id: @user.id, group_movie_id: parent_comment.group_movie_id, vote: params[:vote], parent_id: parent_comment.id)
+
+    if @vote.valid?
+      @vote.save
+    else
+      flash[:error] = @vote.errors.full_messages
+    end
+    redirect_to request.referrer
   end
 
   def update
@@ -29,13 +42,5 @@ class CommentsController < ApplicationController
   private
     def comment_params
       params.require(:comment).permit(:user_id, :group_movie_id, :vote, :parent_id)
-    end
-
-    def source_params
-      if params[:source].values.first
-        "#{params[:source].keys.first}(#{params[:source].values.first})"
-      else
-        "#{params[:source].keys.first}"
-      end
     end
 end

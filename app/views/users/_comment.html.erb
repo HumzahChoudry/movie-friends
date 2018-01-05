@@ -1,24 +1,10 @@
 <% if !comment.parent_id %>
 <div class=parent_comment>
   <div class=up>
-    <!-- <%= form_for @vote do |f|%>
-    <%= f.number_field :user_id, value: @user.id, type: :hidden %>
-    <%= f.number_field :group_movie_id, value: comment.group_movie_id, type: :hidden %>
-    <%= f.number_field :vote, value: 1, type: :hidden %>
-    <%= f.number_field :parent_id, value: comment.id, type: :hidden %>
-    <%= f.submit "▲"%>
-    <% end %> -->
-    ▲
+    <%=link_to "▲", vote_path(parent_id: comment.id, vote: 1, content: nil), method: :post %>
   </div>
   <div class=down>
-    <!-- <%= form_for @vote do |f|%>
-    <%= f.number_field :user_id, value: @user.id, type: :hidden %>
-    <%= f.number_field :group_movie_id, value: comment.group_movie_id, type: :hidden %>
-    <%= f.number_field :vote, value: -1, type: :hidden %>
-    <%= f.number_field :parent_id, value: comment.id, type: :hidden %>
-    <%= f.submit "▼"%>
-    <% end %> -->
-    ▼
+    <%=link_to "▼", vote_path(parent_id: comment.id, vote: -1, content: nil), method: :post %>
   </div>
   <div class=comment_rating>
     <span class=rating><%= comment.get_rating %></span>
@@ -47,24 +33,10 @@
 <% else %>
 <div class=comment>
   <div class=up>
-    <!-- <%= form_for @vote do |f|%>
-    <%= f.number_field :user_id, value: @user.id, type: :hidden %>
-    <%= f.number_field :group_movie_id, value: comment.group_movie_id, type: :hidden %>
-    <%= f.number_field :vote, value: 1, type: :hidden %>
-    <%= f.number_field :parent_id, value: comment.id, type: :hidden %>
-    <%= f.submit "▲"%>
-    <% end %> -->
-    ▲
+    <%=link_to "▲", vote_path(parent_id: comment.id, vote: 1, content: nil), method: :post %>
   </div>
   <div class=down>
-    <!-- <%= form_for @vote do |f|%>
-    <%= f.number_field :user_id, value: @user.id, type: :hidden %>
-    <%= f.number_field :group_movie_id, value: comment.group_movie_id, type: :hidden %>
-    <%= f.number_field :vote, value: -1, type: :hidden %>
-    <%= f.number_field :parent_id, value: comment.id, type: :hidden %>
-    <%= f.submit "▼"%>
-    <% end %> -->
-    ▼
+    <%=link_to "▼", vote_path(parent_id: comment.id, vote: -1, content: nil), method: :post %>
   </div>
   <div class=comment_rating>
     <%= comment.get_rating %>
