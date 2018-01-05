@@ -28,7 +28,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
+
+    if !@user.authenticate(params[:user][:password])
+      flash[:error] = ["Incorrect Password"]
+      redirect_to user_path(@user.id)
+    elsif @user.update(user_params)
       redirect_to user_path(@user.id)
     else
       flash[:error] = @user.errors.full_messages
