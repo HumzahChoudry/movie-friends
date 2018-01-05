@@ -6,6 +6,8 @@ class UsersController < ApplicationController
     @comments = current_user.get_all_comment_trees_visible_by_user
     @vote = Comment.new
     @new_comment = Comment.new
+    @movies = Movie.all
+    @groups = @user.groups
   end
 
   def new

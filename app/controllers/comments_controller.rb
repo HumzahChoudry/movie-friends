@@ -8,8 +8,8 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    if params[:comment][:group]
-      @group_movie = GroupMovie.find_or_create_by(movie: params[:comment][:movie], group: params[:comment][:group])
+    if params[:comment][:group] || params[:comment][:movie]
+      @group_movie = GroupMovie.find_or_create_by(movie_id: params[:comment][:movie], group_id: params[:comment][:group])
     end
     @comment.group_movie = @group_movie
     if @comment.valid?

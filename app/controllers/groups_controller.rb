@@ -21,6 +21,7 @@ class GroupsController < ApplicationController
     @comments = @group.visible_comment_trees
     @vote = Comment.new
     @new_comment = Comment.new
+    @movies = @group.movies
   end
 
   def index
