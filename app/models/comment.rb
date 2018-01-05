@@ -15,7 +15,7 @@ class Comment < ApplicationRecord
 
 
   def time_since_created
-    if self.created_at.today?
+    if self.created_at.to_date == Time.now.to_date
       hours_since = (((Time.now - self.created_at)/60)/60).floor.to_s
       if hours_since == "1"
         time_string = "Submitted " + hours_since + " hour ago"

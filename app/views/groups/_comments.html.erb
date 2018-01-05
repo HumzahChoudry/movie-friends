@@ -1,0 +1,20 @@
+<div class=all_comments>
+  <div class=new_comment>
+    NEW COMMENT
+  </div>
+    <%= plant_trees_for @comments %>
+</div>
+
+<% if @comments == [] %>
+<div class=no_comments_container>
+  <div class=no_comments>
+  <p>
+  No comments <br />
+  to view... <br />
+  <span id=yet> YET! </span><br />
+  Join a Group,<br />
+  make some <br /> Movie Friends!
+  </p>
+  </div>
+</div>
+<% end %>

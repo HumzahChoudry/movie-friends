@@ -11,4 +11,8 @@ class GroupMovie < ApplicationRecord
     end
   end
 
+
+  def visible_comment_trees
+    self.comments.select {|comment| comment.parent_id == nil}.sort_by {|comment| comment.updated_at}.map(&:make_tree)
+  end
 end
