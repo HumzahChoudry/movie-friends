@@ -20,7 +20,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:group])
     @comments = @group.visible_comment_trees
     @vote = Comment.new
-    @source = {group_path: @group.id}
+    @new_comment = Comment.new
   end
 
   def index
@@ -28,7 +28,7 @@ class GroupsController < ApplicationController
     @my_groups = @user.groups
     @all_groups = Group.all.select {|g| !g.users.include?(@user)}
     @vote = Comment.new
-    @source = {groups_path: nil}
+    @new_comment = Comment.new
   end
 
   def join

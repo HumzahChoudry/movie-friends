@@ -33,4 +33,8 @@ class User < ApplicationRecord
     self.groups.map(&:visible_comment_trees).flatten.sort_by {|comment_tree| comment_tree[:comment][:updated_at]}
   end
 
+  def get_user_comment_trees
+    self.comments.select {|comment| comment.parent_id == nil && comment.content != nil}.sort_by {|comment| comment.updated_at}.map(&:make_tree)
+  end
+
 end
