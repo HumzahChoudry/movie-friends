@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   def home
     @user = current_user
     @comments = current_user.get_all_comment_trees_visible_by_user
+    @vote = Comment.new
+    @source = {home_path: nil}
   end
 
   def new

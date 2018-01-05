@@ -19,12 +19,16 @@ class GroupsController < ApplicationController
     @user = current_user
     @group = Group.find(params[:group])
     @comments = @group.visible_comment_trees
+    @vote = Comment.new
+    @source = {group_path: @group.id}
   end
 
   def index
     @user = current_user
     @my_groups = @user.groups
     @all_groups = Group.all.select {|g| !g.users.include?(@user)}
+    @vote = Comment.new
+    @source = {groups_path: nil}
   end
 
   def join
