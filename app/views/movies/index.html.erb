@@ -33,7 +33,7 @@
 
 <div class=movie_container>
   <span class=movie_name>
-    <%= movie.name %>
+    <%= link_to movie.name, movie_path(movie) %>
   </span><br /><br />
   <span class=movie_group_names>
     Groups:
