@@ -37,7 +37,7 @@ class Comment < ApplicationRecord
     if self.children.empty?
       result[:children] = nil
     else
-      result[:children] = self.children.map do |comment|
+      result[:children] = self.children.select {|comment| comment.content != nil }.map do |comment|
         comment.make_tree
       end
     end
