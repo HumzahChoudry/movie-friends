@@ -4,6 +4,14 @@
 <%= render 'menu' %>
 <%= render 'comments' %>
 
+<div class=message>
+<% if flash[:error] %>
+  <%flash[:error].each do |message|%>
+    <%= message %></br>
+  <% end %>
+<% end %>
+</div>
+
 <div class='content'>
 
   <div id='home_userimage'>

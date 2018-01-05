@@ -1,5 +1,12 @@
 <div class=all_comments>
   <% if !@groups.empty? %>
+    <div class=message>
+    <% if flash[:error] %>
+      <%flash[:error].each do |message|%>
+        <%= message %></br>
+      <% end %>
+    <% end %>
+    </div>
   <div class=new_comment>
     <%= form_for @new_comment do |f| %>
     <%= f.number_field :user_id, value: @user.id, type: :hidden %>

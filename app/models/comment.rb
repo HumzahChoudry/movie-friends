@@ -6,6 +6,8 @@ class Comment < ApplicationRecord
   has_one :movie, through: :group_movie
   has_one :group, through: :group_movie
 
+  validates :group_movie_id, :user_id, presence: true
+
 
   def get_rating
     self.children.reduce(0) do |sum, comment|

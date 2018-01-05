@@ -1,5 +1,6 @@
 <div class=all_comments>
   <% if @group.users.include?(@user) %>
+    
   <div class=new_comment>
     <%= form_for @new_comment do |f| %>
     <%= f.number_field :user_id, value: @user.id, type: :hidden %>
