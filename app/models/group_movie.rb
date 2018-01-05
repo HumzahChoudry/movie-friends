@@ -2,6 +2,7 @@ class GroupMovie < ApplicationRecord
   belongs_to :group
   belongs_to :movie
   has_many :comments
+  validates :group_id, :movie_id, presence: true
 
   validate :group_movie_already_exists?
 

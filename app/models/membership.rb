@@ -1,6 +1,7 @@
 class Membership < ApplicationRecord
   belongs_to :group
   belongs_to :user
+  validates :group_id, :user_id, presence: true
 
   validate :membership_already_exists?
 
