@@ -1,19 +1,21 @@
-<div class=all_comments>
-  <div class=new_comment>
-    <%= form_for @new_comment do |f| %>
-    <%= f.number_field :user_id, value: @user.id, type: :hidden %>
-    <%= f.label :group_id, "Post about movie:" %>
-    <%= f.collection_select :movie, @movies, :id, :name, prompt: true %>
-    <%= f.label :group_id, "Post to group:" %>
-    <%= f.collection_select :group, @groups, :id, :name, prompt: true %>
-    <%= f.number_field :vote, value: 1, type: :hidden %>
-    <%= f.number_field :parent_id, value: nil, type: :hidden %>
-    <%= f.text_area :content, placeholder: "Opinion!" %>
-    <%= f.submit %>
+  <div class=all_comments>
+    <% if !@groups.empty? %>
+    <div class=new_comment>
+      <%= form_for @new_comment do |f| %>
+      <%= f.number_field :user_id, value: @user.id, type: :hidden %>
+      <%= f.label :group_id, "Post about movie:" %>
+      <%= f.collection_select :movie, @movies, :id, :name, prompt: true %>
+      <%= f.label :group_id, "Post to group:" %>
+      <%= f.collection_select :group, @groups, :id, :name, prompt: true %>
+      <%= f.number_field :vote, value: 1, type: :hidden %>
+      <%= f.number_field :parent_id, value: nil, type: :hidden %>
+      <%= f.text_area :content, placeholder: "Opinion!" %>
+      <%= f.submit %>
+      <% end %>
+    </div>
     <% end %>
+      <%= plant_trees_for @comments %>
   </div>
-    <%= plant_trees_for @comments %>
-</div>
 
 <% if @comments == [] %>
 <div class=no_comments_container>

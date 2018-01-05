@@ -1,4 +1,5 @@
 <div class=all_comments>
+  <% if !@groups.empty? %>
   <div class=new_comment>
     <%= form_for @new_comment do |f| %>
     <%= f.number_field :user_id, value: @user.id, type: :hidden %>
@@ -11,8 +12,10 @@
     <%= f.submit %>
     <% end %>
   </div>
+  <% end %>
     <%= plant_trees_for @comments %>
 </div>
+
 
 <% if @comments == [] %>
 <div class=no_comments_container>
