@@ -11,5 +11,4 @@ class GroupMovie < ApplicationRecord
     end
   end
 
-
 end
