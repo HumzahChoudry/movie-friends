@@ -8,6 +8,6 @@
 <%= f.number_field :vote, value: 1, type: :hidden %>
 <%= f.number_field :parent_id, value: @comment.id, type: :hidden %>
 <%= text_field_tag :source, nil, value: @source, type: :hidden%>
-<%= f.text_area :content, placeholder: "Opinion!" %>
+<%= f.text_field :content, placeholder: "Opinion!" %>
 <%= f.submit %>
 <% end %>

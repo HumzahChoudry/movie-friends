@@ -411,12 +411,46 @@ bottom: 50%;
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 10px;
-  padding-left: 50px;
+  padding-left: 10px;
   padding-bottom: 10px;
   position: relative;
   overflow:auto;
   z-index: 5;
+    font-size: 8pt;
 }
+
+.new_comment input[type=submit] {
+  width: auto;
+  height: auto;
+  float: right;
+  position: relative;
+  right: 5px;
+  margin-top: 5px;
+}
+
+.new_comment input {
+  background-color: white;
+  width: 98%;
+  height: 25px;
+  border-width: 1px;
+  border-color: black;
+  padding: 5px;
+  margin-bottom: 5px;
+  display: inline;
+}
+
+.new_comment select {
+  background-color: white;
+  width: auto;
+  height: auto;
+  border-width: 1px;
+  border-color: black;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
 
 a.add_comment {
   color: black;
@@ -504,4 +538,19 @@ a.add_comment:hover {
 
 .movie_group_names a {
   color: silver;
+}
+
+#comment_vote_1 {
+  width: auto;
+  padding-top: 2px;
+}
+
+#comment_vote_-1 {
+  width: auto;
+  padding-top: 2px;
+}
+
+label {
+  font-size: 20px;
+  padding-bottom: 2px;
 }

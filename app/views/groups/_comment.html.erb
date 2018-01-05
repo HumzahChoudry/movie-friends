@@ -26,7 +26,7 @@
     <%= f.label :"vote_-1", "-1"%>
     <%= f.radio_button :vote, "-1", checked: -1 %>
     <%= f.number_field :parent_id, value: comment.id, type: :hidden %>
-    <%= f.text_area :content, placeholder: "Opinion!" %>
+    <%= f.text_field :content, placeholder: "Opinion!" %>
     <%= f.submit %>
     <% end %>
   </div>
@@ -64,7 +64,7 @@
     <%= f.label :"vote_-1", "-1"%>
     <%= f.radio_button :vote, "-1", checked: -1 %>
     <%= f.number_field :parent_id, value: comment.id, type: :hidden %>
-    <%= f.text_area :content, placeholder: "Opinion!" %>
+    <%= f.text_field :content, placeholder: "Opinion!" %>
     <%= f.submit %>
     <% end %>
   </div>

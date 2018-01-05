@@ -29,12 +29,12 @@
     <%= form_for @new_comment do |f| %>
     <%= f.number_field :user_id, value: @user.id, type: :hidden %>
     <%= f.number_field :group_movie_id, value: comment.group_movie_id, type: :hidden %>
+    <%= f.number_field :parent_id, value: comment.id, type: :hidden %>
+    <%= f.text_field :content, placeholder: "Opinion!" %><br />
     <%= f.label :"vote_+1", "+1"%>
     <%= f.radio_button :vote, "+1", checked: 1 %>
     <%= f.label :"vote_-1", "-1"%>
     <%= f.radio_button :vote, "-1", checked: -1 %>
-    <%= f.number_field :parent_id, value: comment.id, type: :hidden %>
-    <%= f.text_area :content, placeholder: "Opinion!" %>
     <%= f.submit %>
     <% end %>
   </div>
@@ -71,12 +71,10 @@
     <%= form_for @new_comment do |f| %>
     <%= f.number_field :user_id, value: @user.id, type: :hidden %>
     <%= f.number_field :group_movie_id, value: comment.group_movie_id, type: :hidden %>
-    <%= f.label :"vote_+1", "+1"%>
-    <%= f.radio_button :vote, "+1", checked: 1 %>
-    <%= f.label :"vote_-1", "-1"%>
-    <%= f.radio_button :vote, "-1", checked: -1 %>
+    <%= f.radio_button :vote, checked: 1, class:"up_vote_vote"%>
+    <%= f.radio_button :vote, checked: -1, class:"down_vote_vote" %>
     <%= f.number_field :parent_id, value: comment.id, type: :hidden %>
-    <%= f.text_area :content, placeholder: "Opinion!" %>
+    <%= f.text_field :content, placeholder: "Opinion!" %>
     <%= f.submit %>
     <% end %>
   </div>
