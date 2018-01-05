@@ -19,7 +19,8 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:movie])
     @comments = @movie.visible_comment_trees(@user.id)
     @vote = Comment.new
-    @source = {movie_path: @movie.id}
+    @groups = @user.groups
+    @new_comment = Comment.new
   end
 
   def index

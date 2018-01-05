@@ -264,6 +264,7 @@ a.comment_link:hover {
   font-size: 7vmin;
   text-align: center;
   top: 5vmin;
+  z-index: 1;
 }
 
 .no_comments {
@@ -375,7 +376,8 @@ bottom: 50%;
   color: #8aaad9;
 }
 
-#menu_signout {
+#menu_signout:hover {
+  color: #faae71;
   text-decoration: none;
 }
 
@@ -413,6 +415,7 @@ bottom: 50%;
   padding-bottom: 10px;
   position: relative;
   overflow:auto;
+  z-index: 5;
 }
 
 a.add_comment {
@@ -423,20 +426,22 @@ a.add_comment:hover {
   color: #8aaad9;
 }
 
-.up {
+.up a {
   position:absolute;
   font-size: 9.5px;
   top: 2px;
   left: 17px;
   color: #a4be88;
+  text-decoration: none;
 }
 
-.down {
+.down a {
   position:absolute;
   font-size: 9.5px;
   top: 30px;
   left: 17px;
   color: #dd647a;
+  text-decoration: none;
 }
 
 #yet {
@@ -451,4 +456,52 @@ a.add_comment:hover {
   width: 25%;
   height: 65%;
   text-align: center;
+}
+
+.movie_container {
+  float: left;
+  margin: 10px;
+  width: 35vmin;
+  height: 30vmin;
+  background-color: white;
+  overflow: auto;
+  color: black;
+  padding: 10px;
+  display: block;
+  text-align: center;
+}
+
+.movie_container a {
+  color: black;
+}
+
+.movie_container a:hover {
+  color: #a3a1d0;
+}
+
+.my_movies {
+  float: left;
+  margin: 10px;
+  width: 100%;
+  height: 25%;
+}
+
+.other_movies {
+  float: left;
+  margin: 10px;
+  width: 100%;
+  height: 25%;
+}
+
+.movie_name {
+  font-weight: bold;
+  font-size: 3vmin;
+}
+
+.movie_group_names {
+  font-size: 2vmin;
+}
+
+.movie_group_names a {
+  color: silver;
 }

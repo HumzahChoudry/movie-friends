@@ -10,7 +10,7 @@
     by <%= link_to comment.user.name, user_path(comment.user), { class: "comment_link" } %>
     to <%= link_to comment.group.name, group_path(comment.group), { class: "comment_link" } %>
     about <%= link_to comment.movie.name, movie_path(comment.movie), { class: "comment_link" } %>
-    - <%= comment.children.count %> replies
+    - <%= comment.children_that_are_not_votes.length %> replies
     -
     <a href="javascript:showhide('<%= "reply" + comment.id.to_s %>')" class="add_comment">
         reply
@@ -18,7 +18,17 @@
   </div>
   </div>
   <div id= <%= "reply" + comment.id.to_s %> class="magic">
-    <p>COMMENT BOX</p>
+    <%= form_for @new_comment do |f| %>
+    <%= f.number_field :user_id, value: @user.id, type: :hidden %>
+    <%= f.number_field :group_movie_id, value: comment.group_movie_id, type: :hidden %>
+    <%= f.label :"vote_+1", "+1"%>
+    <%= f.radio_button :vote, "+1", checked: 1 %>
+    <%= f.label :"vote_-1", "-1"%>
+    <%= f.radio_button :vote, "-1", checked: -1 %>
+    <%= f.number_field :parent_id, value: comment.id, type: :hidden %>
+    <%= f.text_area :content, placeholder: "Opinion!" %>
+    <%= f.submit %>
+    <% end %>
   </div>
 </div>
 
@@ -38,7 +48,7 @@
     by <%= link_to comment.user.name, user_path(comment.user), { class: "comment_link" } %>
     to <%= link_to comment.group.name, group_path(comment.group), { class: "comment_link" } %>
     about <%= link_to comment.movie.name, movie_path(comment.movie), { class: "comment_link" } %>
-    - <%= comment.children.count %> replies
+    - <%= comment.children_that_are_not_votes.length %> replies
     -
     <a href="javascript:showhide('<%= "reply" + comment.id.to_s %>')" class="add_comment">
         reply
@@ -46,7 +56,17 @@
   </div>
   </div>
   <div id= <%= "reply" + comment.id.to_s %> class="magic">
-    <p>COMMENT BOX</p>
+    <%= form_for @new_comment do |f| %>
+    <%= f.number_field :user_id, value: @user.id, type: :hidden %>
+    <%= f.number_field :group_movie_id, value: comment.group_movie_id, type: :hidden %>
+    <%= f.label :"vote_+1", "+1"%>
+    <%= f.radio_button :vote, "+1", checked: 1 %>
+    <%= f.label :"vote_-1", "-1"%>
+    <%= f.radio_button :vote, "-1", checked: -1 %>
+    <%= f.number_field :parent_id, value: comment.id, type: :hidden %>
+    <%= f.text_area :content, placeholder: "Opinion!" %>
+    <%= f.submit %>
+    <% end %>
   </div>
 </div>
 <% end %>

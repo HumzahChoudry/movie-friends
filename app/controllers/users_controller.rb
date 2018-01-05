@@ -5,7 +5,9 @@ class UsersController < ApplicationController
     @user = current_user
     @comments = current_user.get_all_comment_trees_visible_by_user
     @vote = Comment.new
-    @source = {home_path: nil}
+    @new_comment = Comment.new
+    @movies = Movie.all
+    @groups = @user.groups
   end
 
   def new
