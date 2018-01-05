@@ -48,4 +48,8 @@ class Comment < ApplicationRecord
     self.group.user_ids.include?(user_id)
   end
 
+  def children_that_are_not_votes
+    self.children.select {|comment| comment.content != nil}
+  end
+
 end

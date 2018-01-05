@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :groups, through: :memberships
   has_many :comments
   has_many :admin_groups, class_name: "Group", foreign_key: "admin_id"
+  has_many :movies, through: :groups
 
   validates :name, uniqueness: true
 
@@ -31,6 +32,10 @@ class User < ApplicationRecord
 
   def get_all_comment_trees_visible_by_user
     self.groups.map(&:visible_comment_trees).flatten.sort_by {|comment_tree| comment_tree[:comment][:updated_at]}
+  end
+
+  def get_user_comment_trees
+    self.comments.select {|comment| comment.parent_id == nil && comment.content != nil}.sort_by {|comment| comment.updated_at}.map(&:make_tree)
   end
 
 end

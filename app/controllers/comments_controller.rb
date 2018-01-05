@@ -1,23 +1,24 @@
 class CommentsController < ApplicationController
   def show
     @comment = Comment.find(params[:id])
-    @source = params[:source] || {comment_path: @comment.id}
     @user = current_user
     @new_comment = Comment.new
     @vote = Comment.new
-    @source = {comment_path: @comment.id}
   end
 
   def create
-    byebug
     @comment = Comment.new(comment_params)
-
+    if params[:comment][:group] || params[:comment][:movie]
+      @group_movie = GroupMovie.find_or_create_by(movie_id: params[:comment][:movie], group_id: params[:comment][:group])
+    end
+    @comment.group_movie = @group_movie
     if @comment.valid?
       @comment.save
     else
+      byebug
       flash[:error] = @comment.errors.full_messages
     end
-    redirect_to :back
+    redirect_to request.referrer
   end
 
   def vote
@@ -41,6 +42,6 @@ class CommentsController < ApplicationController
 
   private
     def comment_params
-      params.require(:comment).permit(:user_id, :group_movie_id, :vote, :parent_id)
+      params.require(:comment).permit(:user_id, :group_movie_id, :vote, :parent_id, :content)
     end
 end
