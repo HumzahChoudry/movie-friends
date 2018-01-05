@@ -6,8 +6,17 @@
   <h1><%= @user.name %></h1>
   <%= image_tag(@user.picture_url, width: 600) if @user.picture.present? %>
 
-  THIS SHOULD SHOW JUST COMMENTS I'VE MADE
+
+  <%= form_for @user do |f| %>
+    <%= f.label :name, value: "EDIT USERNAME", class: 'session' %><br />
+    <%= f.text_field :name, placeholder: "Name", class: 'session' %><br />
+    <%= f.submit class: 'session'  %>
+  <% end %>
+
 
 </div>
 
 <!-- stats on user -->
+<div class='all_comments'>
+  <%= plant_trees_for @comments %>
+<div>

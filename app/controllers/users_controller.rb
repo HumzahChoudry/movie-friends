@@ -26,8 +26,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to user_path(@user.id)
+    else
+      flash[:error] = @user.errors.full_messages
+      redirect_to user_path(@user.id)
+    end
+  end
+
   def show
     @user = User.find(params[:id])
+    @comments = @user.get_user_comment_trees
+    @new_comment = Comment.new
+    @vote = Comment.new
   end
 
   private
