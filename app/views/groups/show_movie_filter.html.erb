@@ -4,4 +4,14 @@
 
 <div class='content'>
 <h1><%= @group.name %> | <%= @movie.name %></h1>
+
+<h3>Members</h3>
+  <% @group.users.each do |user| %>
+    <%= link_to user.name, user_path(user.id) %><br />
+  <% end %>
+<% if @group.users.include?(@user) %>
+<%= button_to "Leave Group", leave_group_path, params: {'group[id]' => @group.id} %>
+<% else %>
+<%= button_to "Join", join_group_path, params: {'group[id]' => @group.id} %>
+<% end %>
 </div>

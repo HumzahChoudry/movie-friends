@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_secure_password
   mount_uploader :picture, PictureUploader
   validates :name, presence: true, uniqueness: true
   has_many :memberships
