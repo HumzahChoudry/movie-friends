@@ -21,12 +21,17 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = []
-    groups = current_user.groups
-    groups.each do |group|
-      @movies << group.movies
-    end
-    @movies.flatten!
+    @user = current_user
+    @my_movies = Movie.all.select{ |movie| movie.groups.any?{ |group| group.user_ids.include?(@user.id)}}
+
+    @other_movies = Movie.all.reject{ |movie| movie.groups.any?{ |group| group.user_ids.include?(@user.id)}}
+
+    # @movies = []
+    # groups = current_user.groups
+    # groups.each do |group|
+    #   @movies << group.movies
+    # end
+    # @movies.flatten!
   end
 
 end

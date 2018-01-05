@@ -1,37 +1,27 @@
 <!-- congratulations you fucking did it you logged in
 <%= link_to "Logout", logout_path %> -->
+<%= render 'lil_logo' %>
+<%= render 'menu' %>
+<%= render 'comments' %>
 
-<div class=lil_logo_container>
-<div class=lil_logo>
-<%= render 'logo' %>
-</div>
-</div>
+<div class='content'>
 
-<div class="menu">
-  <%= link_to "Movies", movies_path %>
-  <%= link_to "Groups", groups_path %>
-  <%= link_to "Sign Out", logout_path %>
-</div>
+  <div id='home_userimage'><%= image_tag("gen_user_pic.gif", :alt => "Upload a picture!") %></div>
+  <br /><div id='home_welcome'>
+  <span id='home_username'>Welcome,</span>
+  <span id='home_username'><%= link_to @user.name, user_path(@user) %>!</span>
+</div><br />
+  EDIT OR PROFILE?<br /><br />
+  CONTENT OF HOME PAGE<br />
+  MAYBE COMMENT WITH OPTION TO POST NEW TO ANY MOVIE/GROUP COMBO?<br />
 
-
-<div class=all_comments>
-    <%= plant_trees_for @comments %>
-</div>
-
-<% if @comments = [] %>
-
-<!-- <div class=no_comments_container>
-  <div class=no_comments>
-  <p>
-  No comments <br />
-  to view... <br />
-  YET!
-  </p>
-  </div>
 </div>
 
-<% else %> -->
 
+<!-- <%= render 'lil_logo' %>
+<%= render 'menu' %>
+<%= render 'comments' %>
 
+<div class='content'>
 
-<% end %>
+</div> -->

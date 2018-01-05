@@ -1,9 +1,13 @@
-<h1><%= @user.name %></h1>
+<%= render 'lil_logo' %>
+<%= render 'menu' %>
+<!-- render 'comments' BROKEN -->
 
-<%= image_tag(@user.picture_url, width: 600) if @user.picture.present? %>
+<div class='content'>
+  <h1><%= @user.name %></h1>
+  <%= image_tag(@user.picture_url, width: 600) if @user.picture.present? %>
 
-<% @user.comments.each do |comment|%>
-  <li><%= comment.content %></li>
-<% end %>
+  THIS SHOULD SHOW JUST COMMENTS I'VE MADE
+
+</div>
 
 <!-- stats on user -->
